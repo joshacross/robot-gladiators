@@ -39,45 +39,39 @@ var fight = function(enemyName) {
                     }
             }   
 
-            if (promptFight === "fight" || promptFight === "FIGHT") {
-                // remove enemy's health by subtracting the amount set in the player variable
-                enemyHealth = enemyHealth - playerAttack;
-                // Log a resulting message to the console so we know that it worked.
-                console.log(
-                    playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
-                );
+            // remove enemy's health by subtracting the amount set in the player variable
+            enemyHealth = enemyHealth - playerAttack;
+            // Log a resulting message to the console so we know that it worked.
+            console.log(
+                playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+            );
 
-                // check enemy's health
-                if (enemyHealth <= 0) {
-                    window.alert(enemyName + " has died!");
-                    // award player money for winning
-                    playerMoney = playerMoney + 20;
-                    // if the enemy-robot's health is zero or less, exit from the fight loop.
-                    break;
-                } else {
-                    window.alert(enemyName + " still has " + enemyHealth + " health left.");
-                }
-                // remove player's health by subtracting the amount set in the enemyAttack variable
-                playerHealth = playerHealth - enemyAttack;
-                // Log a resulting message to the console so we know that it worked.
-                console.log(
-                    enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
-                );
-
-                // check player's health
-                if (playerHealth <= 0) {
-                    window.alert(playerName + " has died! You have lost your robot in battle! Game Over");
-                    break;
-                } else {
-                        window.alert(playerName + " still has " + playerHealth + " health remaining");
-                    }
-            } 
-            // condition variables (fight, FIGHT, skip, or SKIP) not declared by user
-            else {
-                window.alert("You need to choose a valid option. Try again!");
+            // check enemy's health
+            if (enemyHealth <= 0) {
+                window.alert(enemyName + " has died!");
+                // award player money for winning
+                playerMoney = playerMoney + 20;
+                // if the enemy-robot's health is zero or less, exit from the fight loop.
+                break;
+            } else {
+                window.alert(enemyName + " still has " + enemyHealth + " health left.");
             }
-    }
-};
+            // remove player's health by subtracting the amount set in the enemyAttack variable
+            playerHealth = playerHealth - enemyAttack;
+            // Log a resulting message to the console so we know that it worked.
+            console.log(
+                enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+            );
+
+            // check player's health
+            if (playerHealth <= 0) {
+                window.alert(playerName + " has died! You have lost your robot in battle! Game Over");
+                break;
+            } else {
+                window.alert(playerName + " still has " + playerHealth + " health remaining");
+            }
+        } 
+    };
 
 for (var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
