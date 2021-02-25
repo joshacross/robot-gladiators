@@ -4,7 +4,7 @@ var playerAttack= 10;
 var playerMoney = 10;
 
 // You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
+console.log(playerName, playerAttack, playerHealth, playerMoney);
 
 var enemyName = "Roborto";
 var enemyHealth = 50;
@@ -17,13 +17,14 @@ var fight = function() {
     // prompt user to FIGHT or SKIP this round
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
-    if (promptFight === 'fight' || promptFight === 'FIGHT' {
+    if (promptFight === "fight" || promptFight === "FIGHT") {
         // remove enemy's health by subtracting the amount set in the player variable
         enemyHealth = enemyHealth - playerAttack;
         // Log a resulting message to the console so we know that it worked.
         console.log(
             playerName + "attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
         );
+
         // check enemy's health
         if (enemyHealth <= 0) {
             window.alert(enemyName + " has died!");
@@ -42,13 +43,12 @@ var fight = function() {
         // check player's health
         if (playerHealth <= 0) {
             window.alert(payerName + " has died!");
-            else {
+        } else {
                 window.alert(playerName + " still has " + playerHealth + " health remaining");
             }
-        }
 
     // skip or SKIP prompt confirmation     
-    else if (promptFight === 'skip' || promptFight === 'SKIP') {
+    } else if (promptFight === 'skip' || promptFight === 'SKIP') {
         // confirm player wants to skip
         var confirmSkip = window.confirm("Are you sure you'd like to quit?");
         
@@ -63,7 +63,7 @@ var fight = function() {
             else {
                 fight();
             }
-            
+
     // condition variables (fight, FIGHT, skip, or SKIP) not declared by user
     } else {
         window.alert("You need to choose a valid option. Try again!");
