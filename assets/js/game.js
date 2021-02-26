@@ -164,9 +164,21 @@ var randomNumber = function (min, max) {
   return value;
 };
 
+// function to set name
+var getPlayerName = function() {
+  var name = "";
+
+while (name === "" || name === null) {
+  name = prompt("What is your robot's name?");
+}
+
+console.log("Your robot's name is " + name);
+return name;
+};
+
 // player info object
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
@@ -217,4 +229,26 @@ var enemyInfo = [
 
 // start first game when page loads
 startGame();
-  
+
+
+/*Empty player names are accepted.
+
+Selecting Cancel in the player-name prompt assigns "null" as the player's name.
+
+Empty or mixed-case (for example, Skip, SkIp, skiP, etc.) input to the fight-or-skip prompt results in the fight option being chosen.
+
+They also asked for the following new features:
+
+Ability to save the high score.
+
+Randomize who attacks first in each new confrontation.
+
+Simplify the input process for the shop() prompt to reduce the amount of typing needed to reply to prompts.
+
+As we complete the tasks for this lesson, we will learn how to do the following:
+
+Store data by using the Web Storage API.
+
+Validate player prompts by using the while loop.
+
+Add more variability to the game by using the Math.random() function. */
