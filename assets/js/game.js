@@ -5,6 +5,11 @@
 // "LOSE"
 //  * Player robot's health is zero or less
 
+var randomNumber = function (min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value;
+};
 
 var playerName = window.prompt("what is your robot's name?");
 var playerHealth = 100;
@@ -16,11 +21,7 @@ console.log(playerName, playerAttack, playerHealth, playerMoney);
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = randomNumber(40, 60);
 var enemyAttack = 12;
-var randomNumber = function (min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
-  
-    return value;
-  };
+
 
 // function to start a new game
 var startGame = function() {
@@ -129,6 +130,8 @@ var fight = function(enemyName) {
       }
   
       // remove players's health by subtracting the amount set in the enemyAttack variable
+      var damage = randomNumber(enemyAttack - 3, enemyAttack);
+
       playerHealth = Math.max(0, playerHealth - enemyAttack);
       console.log(
         enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
