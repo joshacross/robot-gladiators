@@ -9,7 +9,7 @@ In order to win the game, player must strategically defeat all enemy robots with
 
 * Stored player and enemy stats using object properties and methods
 
-* Data validation of player input
+* Data validation of player input using recursive functions
 
 * Control flow statements - For and While loops, directing operation order and application behavior
 
@@ -20,7 +20,7 @@ In order to win the game, player must strategically defeat all enemy robots with
 
 * Data is stored and manipulated using primitive data types
 
-* Recursive functions 
+* Randomness to who goes first and enemy stats
 
 * Time management and focus by tracking bugs and feature requests in GitHub issues panel
 
