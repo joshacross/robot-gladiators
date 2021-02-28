@@ -117,7 +117,8 @@ var fight = function(enemy) {
       playerInfo.money = playerInfo.money + 20;
 
       // // leave while() loop since enemy is dead
-      // break;
+      shop();
+      break;
     } else {
       window.alert(enemy.name + " still has " + enemy.health + " health left.");
     }
@@ -133,8 +134,8 @@ var fight = function(enemy) {
     // check player's health
     if (playerInfo.health <= 0) {
       window.alert(playerInfo.name + ' has died!');
-      // // leave while() loop if player is dead
-      // break;
+      // leave while() loop if player is dead
+      break;
     } else {
       window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
     }
@@ -145,21 +146,21 @@ var fight = function(enemy) {
 var shop = function() {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+    'Would you like to [1 - REFILL your health], [2 - UPGRADE your attack], or [3 - LEAVE the store]? Please enter one "1", "2", or "3" to make a choice.'
   );
+
+  //convert string to an integer
+  shopOptionPrompt = parseInt(shopOptionPrompt);
 
   // use switch case to carry out action
   switch (shopOptionPrompt) {
-    case 'refill':
-    case 'REFILL':
+    case 1:
       playerInfo.refillHealth();
       break;
-    case 'upgrade':
-    case 'UPGRADE':
+    case 2:
       playerInfo.upgradeAttack();
       break;
-    case 'leave':
-    case 'LEAVE':
+    case 3:
       window.alert('Leaving the store.');
       break;
     default:
@@ -169,23 +170,24 @@ var shop = function() {
   }
 };
 
+// function to set name
+var getPlayerName = function() {
+  var name ="";
+
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 // function to generate a random numeric value
 var randomNumber = function (min, max) {
   var value = Math.floor(Math.random() * (max - min + 1) + min);
 
   return value;
-};
-
-// function to set name
-var getPlayerName = function() {
-  var name = "";
-
-while (name === "" || name === null) {
-  name = prompt("What is your robot's name?");
-}
-
-console.log("Your robot's name is " + name);
-return name;
 };
 
 // player info object
